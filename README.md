@@ -49,7 +49,7 @@ If set to true, the query will refetch on window focus if the data is stale. If 
 
 Default value is set to true.
 
-5. react-query polling
+5. react-query refetchInterval - Polling
 
 Fetching data at regular intervals. For example: If you have component that shows real time price of different stocks, you might want to fetch the data every second so is in sync with UI.
 
