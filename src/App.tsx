@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { QueryClientProvider, QueryClient } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 //Partials
 import Header from './components/partials/Header/Header'
@@ -12,6 +13,7 @@ const App: FC = () => {
     <QueryClientProvider client={queryClient}>
       <Header />
       <Routes />
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   )
 }
