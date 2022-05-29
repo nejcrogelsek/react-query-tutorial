@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "husky:postinstall": "husky install",
+		"serve-json": "json-server --watch db.json --port 4000",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -17,8 +18,8 @@
     "code:check": "prettier --check \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format": "prettier --write \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format:specific-file": "prettier --write",
-		"lint": "eslint .",
-		"lint:fix": "eslint --fix ."
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -31,6 +32,7 @@
     "@types/react-dom": "^18.0.0",
     "axios": "^0.26.1",
     "generate-react-cli": "^7.1.0",
+    "json-server": "^0.17.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",

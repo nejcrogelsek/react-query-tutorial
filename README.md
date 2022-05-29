@@ -1,6 +1,8 @@
 # React Query tutorial
 
-Tutorial videos from made by [Codevolution](https://www.youtube.com/watch?v=VtWkSCZX0Ec&list=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2).
+Tutorial videos from made by [Codevolution](https://www.youtube.com/watch?v=Ev60HKYFM0s&list=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2&index=3).
+
+Code is separated with different branches. Every video has his own branch.
 
 **First steps:**
 
@@ -9,6 +11,8 @@ Tutorial videos from made by [Codevolution](https://www.youtube.com/watch?v=VtWk
 2. Delete .git file inside cloned project.
 3. Run: `yarn run start:clean`
 4. Run: `yarn run husky:postinstall` to install husky git hook (automatically formats the code when pushing code to github)
+
+5. Before running the app you need to serve mock data with: `yarn run serve-json`. If you go to http://localhost:4000/superheroes you will see the data.
 
 ## About react-query
 
