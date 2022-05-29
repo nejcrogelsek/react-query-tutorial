@@ -11,7 +11,7 @@ const fetchSuperHeroes = () => {
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
   const { data, isLoading, isError, error, isFetching } = useQuery('super-heroes', fetchSuperHeroes, {
-    cacheTime: 3000, // default time is set to 5 minutes
+    staleTime: 0, // default time is set to 0
   })
 
   console.log({ isLoading, isFetching })
