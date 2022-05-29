@@ -16,7 +16,9 @@ Code is separated with different branches. Every video has his own branch.
 
 ## About react-query
 
-1. react-query cache
+Link to [offical website](https://react-query.tanstack.com/).
+
+**1. react-query cache**
 
 The first time useQuery is fired for superheros key, isLoading flag is set to true and network request is send to fetch the data. When the request is completed it is cached used the query key (superheroes) and the fetchSuperHeroes function as the unique identifiers.
 
@@ -31,7 +33,7 @@ React query cache the data so we don't need to see the loading indicator every t
 
 The default cache time is set to 5 mintes. We can change it with options cacheTime property
 
-2. react-query stale time
+**2. react-query stale time**
 
 Let's say the data doesn't change that often. We can set the stale time to 30 seconds and the user will see the cached query results or cached data for 30 seconds before refetching it again. The default state time is set to 0 seconds.
 
