@@ -10,13 +10,13 @@ const fetchSuperHeroes = () => {
 }
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
-  const { data, isLoading, isError, error, isFetching } = useQuery('super-heroes', fetchSuperHeroes, {
-    refetchInterval: 2000,
+  const { data, isLoading, isError, error, isFetching, refetch } = useQuery('super-heroes', fetchSuperHeroes, {
+    enabled: false,
   })
 
   console.log({ isLoading, isFetching })
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <h2>Loading...</h2>
   }
 
@@ -27,6 +27,9 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
   return (
     <>
       <h2>RQ Super Heroes</h2>
+      <button type="button" onClick={() => refetch()}>
+        Fetch superheroes
+      </button>
       <ul>
         {data?.data.map((hero: SuperHero, index: number) => (
           <li key={index}>{hero.name}</li>
