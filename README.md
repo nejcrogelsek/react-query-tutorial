@@ -16,6 +16,21 @@ Code is separated with different branches. Every video has his own branch.
 
 ## About react-query
 
+1. react-query cache
+
+The first time useQuery is fired for superheros key, isLoading flag is set to true and network request is send to fetch the data. When the request is completed it is cached used the query key (superheroes) and the fetchSuperHeroes function as the unique identifiers.
+
+When we revisit the page react query will check if the data for this query exists in cache. If the data exists in the cache, the cached data is immediately returned without isLoading flag set to true.
+
+React query knows that the server data might be updated and that the cache doesn't contain the latest data. So a background refetch is triggered for the same query and if the response is successful the displayed data is updated in the UI.
+As our data in this example is the same as the cached data, we don't see any differences. But you can change the db.json file and see the changes for yourself.
+
+To indicate the background refetch state, react-query provides us with the flag called isFetching.
+
+React query cache the data so we don't need to see the loading indicator every time we visit the page.
+
+The default cache time is set to 5 mintes. We can change it with options cacheTime property
+
 ## Available Scripts
 
 In the project directory, you can run:
