@@ -6,7 +6,7 @@ import { SuperHero } from 'interfaces'
 interface Props {}
 
 const fetchSuperHeroes = () => {
-  return axios.get('http://localhost:4000/superheroes1')
+  return axios.get('http://localhost:4000/superheroes')
 }
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
@@ -21,6 +21,10 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
   const { data, isLoading, isError, error, isFetching, refetch } = useQuery('super-heroes', fetchSuperHeroes, {
     onError,
     onSuccess,
+    select: (response) => {
+      const result = response.data.map((hero: SuperHero) => hero.name)
+      return result
+    },
   })
 
   console.log({ isLoading, isFetching })
@@ -40,8 +44,8 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
         Fetch superheroes
       </button>
       <ul>
-        {data?.data.map((hero: SuperHero, index: number) => (
-          <li key={index}>{hero.name}</li>
+        {data.map((heroName: string, index: number) => (
+          <li key={index}>{heroName}</li>
         ))}
       </ul>
     </>

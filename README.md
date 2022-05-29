@@ -59,6 +59,14 @@ Default value is set to false.
 
 Polling is paused when the window lose focus. To fix that issue we can set `refetchIntervalInBackground` property to true.
 
+6. react-query select - Data Transformation
+
+For data tranformation react-query provides us with `select` flag.
+
+`select` is function that receives onSuccess response and transform out data in the way we want it.
+
+In our example we transformed data to be an array of just heroes names instead of whole response.
+
 ## Available Scripts
 
 In the project directory, you can run:
