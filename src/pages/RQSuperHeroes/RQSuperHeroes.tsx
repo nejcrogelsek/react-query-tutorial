@@ -6,12 +6,21 @@ import { SuperHero } from 'interfaces'
 interface Props {}
 
 const fetchSuperHeroes = () => {
-  return axios.get('http://localhost:4000/superheroes')
+  return axios.get('http://localhost:4000/superheroes1')
 }
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
+  const onError = (error: Error) => {
+    console.log('Perform side effect after encountering error', error)
+  }
+
+  const onSuccess = (response: any) => {
+    console.log('Perform side effect after encountering error', response)
+  }
+
   const { data, isLoading, isError, error, isFetching, refetch } = useQuery('super-heroes', fetchSuperHeroes, {
-    enabled: false,
+    onError,
+    onSuccess,
   })
 
   console.log({ isLoading, isFetching })
