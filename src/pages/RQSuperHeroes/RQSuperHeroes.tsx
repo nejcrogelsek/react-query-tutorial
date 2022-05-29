@@ -10,8 +10,6 @@ const fetchSuperHeroes = () => {
 }
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
-  const [interval, setInterval] = useState<any>(3000)
-
   const onError = (error: Error) => {
     console.log('Perform side effect after encountering error', error)
     setInterval(false)
@@ -25,7 +23,10 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
   const { data, isLoading, isError, error, isFetching } = useQuery('super-heroes', fetchSuperHeroes, {
     onError,
     onSuccess,
-    refetchInterval: interval,
+    select: (response) => {
+      const result = response.data.map((hero: SuperHero) => hero.name)
+      return result
+    },
   })
 
   console.log({ isLoading, isFetching })
@@ -42,8 +43,8 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
     <>
       <h2>RQ Super Heroes</h2>
       <ul>
-        {data?.data.map((hero: SuperHero, index: number) => (
-          <li key={index}>{hero.name}</li>
+        {data.map((heroName: string, index: number) => (
+          <li key={index}>{heroName}</li>
         ))}
       </ul>
     </>

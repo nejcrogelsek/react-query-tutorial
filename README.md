@@ -71,6 +71,14 @@ Combine polling with callbacks. Use the `refetchInterval` option to pull the api
 Hint:
 Mantain state variable whose initial value is 3000. State variable will be assigned to `refetchInterval` configuration. In callbacks check for the response / errors and set the state variable to false.
 
+7. react-query select - Data Transformation
+
+For data tranformation react-query provides us with `select` flag.
+
+`select` is function that receives onSuccess response and transform out data in the way we want it.
+
+In our example we transformed data to be an array of just heroes names instead of whole response.
+
 ## Available Scripts
 
 In the project directory, you can run:
