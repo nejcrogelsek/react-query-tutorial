@@ -1,12 +1,30 @@
 import { FC } from 'react'
+import { useQuery } from 'react-query'
+import axios from 'axios'
+import { SuperHero } from 'interfaces'
 
 interface Props {}
 
+const fetchSuperHeroes = () => {
+  return axios.get('http://localhost:4000/superheroes')
+}
+
 const RQSuperHeroes: FC<Props> = (props: Props) => {
+  const { data, isLoading } = useQuery('super-heroes', fetchSuperHeroes)
+
+  if (isLoading) {
+    return <h2>Loading...</h2>
+  }
+
   return (
-    <div className="rq-super-heroes">
-      <h1>React Query SuperHeroes</h1>
-    </div>
+    <>
+      <h2>RQ Super Heroes</h2>
+      <ul>
+        {data?.data.map((hero: SuperHero, index: number) => (
+          <li key={index}>{hero.name}</li>
+        ))}
+      </ul>
+    </>
   )
 }
 
