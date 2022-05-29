@@ -1,6 +1,6 @@
 # React Query tutorial
 
-Tutorial videos from made by [Codevolution](https://www.youtube.com/watch?v=Ev60HKYFM0s&list=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2&index=3).
+Tutorial videos are made by [Codevolution](https://www.youtube.com/watch?v=Ev60HKYFM0s&list=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2&index=3).
 
 Code is separated with different branches. Every video has his own branch.
 
