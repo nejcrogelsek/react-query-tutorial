@@ -1,13 +1,7 @@
-import { FC, useState } from 'react'
-import { useQuery } from 'react-query'
-import axios from 'axios'
-import { SuperHero } from 'interfaces'
+import { FC } from 'react'
+import { useSuperHeroesData } from 'lib/hooks/useSuperHeroesData'
 
 interface Props {}
-
-const fetchSuperHeroes = () => {
-  return axios.get('http://localhost:4000/superheroes')
-}
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
   const onError = (error: Error) => {
@@ -18,14 +12,7 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
     console.log('Perform side effect after encountering error', response)
   }
 
-  const { data, isLoading, isError, error, isFetching } = useQuery('super-heroes', fetchSuperHeroes, {
-    onError,
-    onSuccess,
-    select: (response) => {
-      const result = response.data.map((hero: SuperHero) => hero.name)
-      return result
-    },
-  })
+  const { data, isLoading, isError, error, isFetching } = useSuperHeroesData({ onSuccess, onError })
 
   console.log({ isLoading, isFetching })
 
