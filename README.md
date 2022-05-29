@@ -59,6 +59,16 @@ Default value is set to false.
 
 Polling is paused when the window lose focus. To fix that issue we can set `refetchIntervalInBackground` property to true.
 
+6. Homework (Solution on branch: feature/09-homework)
+
+Combine polling with callbacks. Use the `refetchInterval` option to pull the api data every 3 seconds. Behind the scenes add a fourth superhero of your choice to the superheroes array in `db.json`.
+
+	a.) Within the onSuccess callback check if the number of heroes is 4 and ifit is the case I want you to stop the polling.
+	b.) Within the onError callback I want you to stop the polling.
+
+Hint:
+Mantain state variable whose initial value is 3000. State variable will be assigned to `refetchInterval` configuration. In callbacks check for the response / errors and set the state variable to false.
+
 ## Available Scripts
 
 In the project directory, you can run:
