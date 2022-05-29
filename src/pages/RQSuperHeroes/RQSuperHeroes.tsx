@@ -11,7 +11,8 @@ const fetchSuperHeroes = () => {
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
   const { data, isLoading, isError, error, isFetching } = useQuery('super-heroes', fetchSuperHeroes, {
-    staleTime: 0, // default time is set to 0
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
   })
 
   console.log({ isLoading, isFetching })

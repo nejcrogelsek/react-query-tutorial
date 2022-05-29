@@ -37,6 +37,18 @@ Let's say the data doesn't change that often. We can set the stale time to 30 se
 
 0 seconds is possibly the safest value you can set to stale time, which is also the default value.
 
+3. react-query refetchOnMount
+
+If set to true, the query will refetch on mount if the data is stale. If set to false, will disable additional instances of a query to trigger background refetches. If set to 'always', the query will always refetch on mount. If set to a function, the function will be executed with the latest data and query to compute the value Defaults to true.
+
+Default value is set to true.
+
+4. react-query refetchOnWindowFocus
+
+If set to true, the query will refetch on window focus if the data is stale. If set to false, the query will not refetch on window focus. If set to 'always', the query will always refetch on window focus. If set to a function, the function will be executed with the latest data and query to compute the value. Defaults to true.
+
+Default value is set to true.
+
 ## Available Scripts
 
 In the project directory, you can run:
