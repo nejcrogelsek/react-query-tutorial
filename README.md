@@ -1,6 +1,6 @@
 # React Query tutorial
 
-Tutorial videos from made by [Codevolution](https://www.youtube.com/watch?v=Ev60HKYFM0s&list=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2&index=3).
+Tutorial videos are made by [Codevolution](https://www.youtube.com/watch?v=Ev60HKYFM0s&list=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2&index=3).
 
 Code is separated with different branches. Every video has his own branch.
 
@@ -16,7 +16,9 @@ Code is separated with different branches. Every video has his own branch.
 
 ## About react-query
 
-1. react-query cache
+Link to [offical website](https://react-query.tanstack.com/).
+
+**1. react-query cache**
 
 The first time useQuery is fired for superheros key, isLoading flag is set to true and network request is send to fetch the data. When the request is completed it is cached used the query key (superheroes) and the fetchSuperHeroes function as the unique identifiers.
 
@@ -31,7 +33,7 @@ React query cache the data so we don't need to see the loading indicator every t
 
 The default cache time is set to 5 mintes. We can change it with options cacheTime property
 
-2. react-query stale time
+**2. react-query stale time**
 
 Let's say the data doesn't change that often. We can set the stale time to 30 seconds and the user will see the cached query results or cached data for 30 seconds before refetching it again. The default state time is set to 0 seconds.
 
@@ -49,7 +51,7 @@ If set to true, the query will refetch on window focus if the data is stale. If 
 
 Default value is set to true.
 
-5. react-query polling
+5. react-query refetchInterval - Polling
 
 Fetching data at regular intervals. For example: If you have component that shows real time price of different stocks, you might want to fetch the data every second so is in sync with UI.
 
@@ -59,7 +61,17 @@ Default value is set to false.
 
 Polling is paused when the window lose focus. To fix that issue we can set `refetchIntervalInBackground` property to true.
 
-6. react-query select - Data Transformation
+6. Homework (Solution on branch: feature/09-homework)
+
+Combine polling with callbacks. Use the `refetchInterval` option to pull the api data every 3 seconds. Behind the scenes add a fourth superhero of your choice to the superheroes array in `db.json`.
+
+	a.) Within the onSuccess callback check if the number of heroes is 4 and ifit is the case I want you to stop the polling.
+	b.) Within the onError callback I want you to stop the polling.
+
+Hint:
+Mantain state variable whose initial value is 3000. State variable will be assigned to `refetchInterval` configuration. In callbacks check for the response / errors and set the state variable to false.
+
+7. react-query select - Data Transformation
 
 For data tranformation react-query provides us with `select` flag.
 
