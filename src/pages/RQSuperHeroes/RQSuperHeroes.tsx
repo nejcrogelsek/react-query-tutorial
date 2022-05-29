@@ -6,7 +6,7 @@ import { SuperHero } from 'interfaces'
 interface Props {}
 
 const fetchSuperHeroes = () => {
-  return axios.get('http://localhost:4000/superheroes1')
+  return axios.get('http://localhost:4000/superheroes')
 }
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
