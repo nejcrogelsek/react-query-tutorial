@@ -39,19 +39,19 @@ Let's say the data doesn't change that often. We can set the stale time to 30 se
 
 0 seconds is possibly the safest value you can set to stale time, which is also the default value.
 
-3. react-query refetchOnMount
+**3. react-query refetchOnMount**
 
 If set to true, the query will refetch on mount if the data is stale. If set to false, will disable additional instances of a query to trigger background refetches. If set to 'always', the query will always refetch on mount. If set to a function, the function will be executed with the latest data and query to compute the value Defaults to true.
 
 Default value is set to true.
 
-4. react-query refetchOnWindowFocus
+**4. react-query refetchOnWindowFocus**
 
 If set to true, the query will refetch on window focus if the data is stale. If set to false, the query will not refetch on window focus. If set to 'always', the query will always refetch on window focus. If set to a function, the function will be executed with the latest data and query to compute the value. Defaults to true.
 
 Default value is set to true.
 
-5. react-query refetchInterval - Polling
+**5. react-query refetchInterval - Polling**
 
 Fetching data at regular intervals. For example: If you have component that shows real time price of different stocks, you might want to fetch the data every second so is in sync with UI.
 
@@ -61,23 +61,32 @@ Default value is set to false.
 
 Polling is paused when the window lose focus. To fix that issue we can set `refetchIntervalInBackground` property to true.
 
-6. Homework (Solution on branch: feature/09-homework)
+**6. Homework (Solution on branch: feature/09-homework)**
 
 Combine polling with callbacks. Use the `refetchInterval` option to pull the api data every 3 seconds. Behind the scenes add a fourth superhero of your choice to the superheroes array in `db.json`.
 
-	a.) Within the onSuccess callback check if the number of heroes is 4 and ifit is the case I want you to stop the polling.
-	b.) Within the onError callback I want you to stop the polling.
+    a.) Within the onSuccess callback check if the number of heroes is 4 and ifit is the case I want you to stop the polling.
+    b.) Within the onError callback I want you to stop the polling.
 
 Hint:
 Mantain state variable whose initial value is 3000. State variable will be assigned to `refetchInterval` configuration. In callbacks check for the response / errors and set the state variable to false.
 
-7. react-query select - Data Transformation
+**7. react-query select - Data Transformation**
 
 For data tranformation react-query provides us with `select` flag.
 
 `select` is function that receives onSuccess response and transform out data in the way we want it.
 
 In our example we transformed data to be an array of just heroes names instead of whole response.
+
+**8. QueryById - 2 solutions**
+
+We can query by id in two ways (look commits under branch name: `feature/12-queryById`).
+
+    a.) Solution 1 or first commit: **QueryById with manuali passed ID**
+    		- We can manually pass id into fetch function: file `useSuperHeroData`
+    b.) Solution 2 or second commit: **QueryById with react-query automatic passed id**
+    		- React query automatically pass id into fetch function: file `useSuperHeroData`
 
 ## Available Scripts
 
