@@ -3,3 +3,7 @@ export interface SuperHero {
   name: string
   alterEgo: string
 }
+export interface Friend {
+  id: number
+  name: string
+}
