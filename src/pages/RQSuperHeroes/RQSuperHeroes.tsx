@@ -1,5 +1,7 @@
 import { FC } from 'react'
 import { useSuperHeroesData } from 'lib/hooks/useSuperHeroesData'
+import { SuperHero } from 'interfaces'
+import { Link } from 'react-router-dom'
 
 interface Props {}
 
@@ -28,8 +30,10 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
     <>
       <h2>RQ Super Heroes</h2>
       <ul>
-        {data.map((heroName: string, index: number) => (
-          <li key={index}>{heroName}</li>
+        {data.data.map((hero: SuperHero, index: number) => (
+          <li key={index}>
+            <Link to={`/rq-superheroes/${hero.id}`}>{hero.name}</Link>
+          </li>
         ))}
       </ul>
     </>
