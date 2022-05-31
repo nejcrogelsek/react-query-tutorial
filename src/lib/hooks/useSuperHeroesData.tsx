@@ -15,9 +15,5 @@ export const useSuperHeroesData = ({ onSuccess, onError }: Props) => {
   return useQuery('super-heroes', fetchSuperHeroes, {
     onError,
     onSuccess,
-    select: (response) => {
-      const result = response.data.map((hero: SuperHero) => hero.name)
-      return result
-    },
   })
 }
