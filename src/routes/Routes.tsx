@@ -7,6 +7,7 @@ import SuperHeroes from 'pages/SuperHeroes/SuperHeroes'
 import RQSuperHeroes from 'pages/RQSuperHeroes/RQSuperHeroes'
 import RQSuperHero from 'pages/RQSuperHero/RQSuperHero'
 import ParallelQueries from 'pages/ParallelQueries/ParallelQueries'
+import DynamicParallelQueries from 'pages/DynamicParallelQueries/DynamicParallelQueries'
 
 export enum RouteType {
   PUBLIC,
@@ -44,6 +45,11 @@ export const AppRoutes: AppRoute[] = [
     type: RouteType.PUBLIC,
     path: '/parallel-queries',
     children: <ParallelQueries />,
+  },
+  {
+    type: RouteType.PUBLIC,
+    path: '/dynamic-parallel-queries',
+    children: <DynamicParallelQueries heroIds={[1, 3]} />,
   },
 ]
 
