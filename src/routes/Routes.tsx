@@ -6,6 +6,7 @@ import Page404 from 'pages/Page404/Page404'
 import SuperHeroes from 'pages/SuperHeroes/SuperHeroes'
 import RQSuperHeroes from 'pages/RQSuperHeroes/RQSuperHeroes'
 import RQSuperHero from 'pages/RQSuperHero/RQSuperHero'
+import ParallelQueries from 'pages/ParallelQueries/ParallelQueries'
 
 export enum RouteType {
   PUBLIC,
@@ -38,6 +39,11 @@ export const AppRoutes: AppRoute[] = [
     type: RouteType.PUBLIC,
     path: '/rq-superheroes/:heroId',
     children: <RQSuperHero />,
+  },
+  {
+    type: RouteType.PUBLIC,
+    path: '/parallel-queries',
+    children: <ParallelQueries />,
   },
 ]
 

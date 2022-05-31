@@ -88,6 +88,10 @@ We can query by id in two ways (look commits under branch name: `feature/12-quer
     b.) Solution 2 or second commit: **QueryById with react-query automatic passed id**
     		- React query automatically pass id into fetch function: file `useSuperHeroData`
 
+**9. react-query - Parallel queries**
+
+Sometimes a single component needs to call multiple APIs to fetch the necessary data. With react-query with simply call useQuery twice.
+
 ## Available Scripts
 
 In the project directory, you can run:
