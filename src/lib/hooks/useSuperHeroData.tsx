@@ -8,12 +8,13 @@ interface Props {
   heroId: string
 }
 
-const fetchSuperHero = (id: string) => {
+const fetchSuperHero = ({ queryKey }: { queryKey: any[] }) => {
+  const id = queryKey[1]
   return axios.get(`http://localhost:4000/superheroes/${id}`)
 }
 
 export const useSuperHeroData = ({ onSuccess, onError, heroId }: Props) => {
-  return useQuery(['super-hero', heroId], () => fetchSuperHero(heroId), {
+  return useQuery(['super-hero', heroId], fetchSuperHero, {
     onError,
     onSuccess,
   })
