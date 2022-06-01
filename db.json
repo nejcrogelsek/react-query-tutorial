@@ -29,5 +29,17 @@
       "id": 3,
       "name": "Rachel"
     }
+  ],
+  "users": [
+    {
+      "id": "test@gmail.com",
+      "channelId": "codevolution"
+    }
+  ],
+  "channels": [
+    {
+      "id": "codevolution",
+      "courses": ["react", "vue", "angular"]
+    }
   ]
 }

@@ -92,6 +92,10 @@ We can query by id in two ways (look commits under branch name: `feature/12-quer
 
 Sometimes a single component needs to call multiple APIs to fetch the necessary data. With react-query with simply call useQuery twice.
 
+**10. react-query - Dependent queries**
+
+Dependent query - is dependent on the results of another query.
+
 ## Available Scripts
 
 In the project directory, you can run:
