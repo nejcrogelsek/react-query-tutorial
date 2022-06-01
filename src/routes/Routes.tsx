@@ -9,6 +9,7 @@ import RQSuperHero from 'pages/RQSuperHero/RQSuperHero'
 import ParallelQueries from 'pages/ParallelQueries/ParallelQueries'
 import DynamicParallelQueries from 'pages/DynamicParallelQueries/DynamicParallelQueries'
 import DependentQueries from 'pages/DependentQueries/DependentQueries'
+import PaginatedQueries from 'pages/PaginatedQueries/PaginatedQueries'
 
 export enum RouteType {
   PUBLIC,
@@ -56,6 +57,11 @@ export const AppRoutes: AppRoute[] = [
     type: RouteType.PUBLIC,
     path: '/dependent-queries',
     children: <DependentQueries email="test@gmail.com" />,
+  },
+  {
+    type: RouteType.PUBLIC,
+    path: '/paginated-queries',
+    children: <PaginatedQueries />,
   },
 ]
 
