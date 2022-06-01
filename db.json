@@ -44,6 +44,11 @@
       "name": "Test",
       "alterEgo": "Test",
       "id": 9
+    },
+    {
+      "name": "hello",
+      "alterEgo": "world",
+      "id": 10
     }
   ],
   "friends": [
