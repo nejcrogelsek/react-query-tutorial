@@ -10,6 +10,7 @@ import ParallelQueries from 'pages/ParallelQueries/ParallelQueries'
 import DynamicParallelQueries from 'pages/DynamicParallelQueries/DynamicParallelQueries'
 import DependentQueries from 'pages/DependentQueries/DependentQueries'
 import PaginatedQueries from 'pages/PaginatedQueries/PaginatedQueries'
+import InfiniteQueries from 'pages/InfiniteQueries/InfiniteQueries'
 
 export enum RouteType {
   PUBLIC,
@@ -62,6 +63,11 @@ export const AppRoutes: AppRoute[] = [
     type: RouteType.PUBLIC,
     path: '/paginated-queries',
     children: <PaginatedQueries />,
+  },
+  {
+    type: RouteType.PUBLIC,
+    path: '/infinite-queries',
+    children: <InfiniteQueries />,
   },
 ]
 

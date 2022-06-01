@@ -1,11 +1,14 @@
-import { FC } from 'react'
-import { useSuperHeroesData } from 'lib/hooks/useSuperHeroesData'
+import { FC, FormEvent, useState } from 'react'
+import { useSuperHeroesData, useAddSuperHeroData } from 'lib/hooks/useSuperHeroesData'
 import { SuperHero } from 'interfaces'
 import { Link } from 'react-router-dom'
 
 interface Props {}
 
 const RQSuperHeroes: FC<Props> = (props: Props) => {
+  const [name, setName] = useState<string>('')
+  const [alterEgo, setAlterEgo] = useState<string>('')
+
   const onError = (error: Error) => {
     console.log('Perform side effect after encountering error', error)
   }
@@ -14,9 +17,20 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
     console.log('Perform side effect after encountering error', response)
   }
 
-  const { data, isLoading, isError, error, isFetching } = useSuperHeroesData({ onSuccess, onError })
+  const { data, isLoading, isError, error, isFetching, refetch } = useSuperHeroesData({ onSuccess, onError })
+
+  const { mutate: addHero, isLoading: isLoadingHero, isError: isErrorHero, error: errorHero } = useAddSuperHeroData()
 
   console.log({ isLoading, isFetching })
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    const hero = {
+      name,
+      alterEgo,
+    }
+    addHero(hero)
+  }
 
   if (isLoading || isFetching) {
     return <h2>Loading...</h2>
@@ -29,6 +43,12 @@ const RQSuperHeroes: FC<Props> = (props: Props) => {
   return (
     <>
       <h2>RQ Super Heroes</h2>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input type="text" id="name" value={alterEgo} onChange={(e) => setAlterEgo(e.target.value)} />
+        <button type="submit">Add hero</button>
+      </form>
+      <button onClick={() => refetch()}>Refetch heroes</button>
       <ul>
         {data.data.map((hero: SuperHero, index: number) => (
           <li key={index}>

@@ -14,6 +14,31 @@
       "id": 3,
       "name": "Wonder Woman",
       "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "Spiderman",
+      "alterEgo": "Third person",
+      "id": 4
+    },
+    {
+      "name": "Miki",
+      "alterEgo": "John Doe",
+      "id": 5
+    },
+    {
+      "name": "Test",
+      "alterEgo": "Big mike",
+      "id": 6
+    },
+    {
+      "name": "Test",
+      "alterEgo": "Big mike",
+      "id": 7
+    },
+    {
+      "name": "Add automatic",
+      "alterEgo": "Okej it works",
+      "id": 8
     }
   ],
   "friends": [
@@ -39,7 +64,11 @@
   "channels": [
     {
       "id": "codevolution",
-      "courses": ["react", "vue", "angular"]
+      "courses": [
+        "react",
+        "vue",
+        "angular"
+      ]
     }
   ],
   "colors": [
