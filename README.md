@@ -65,8 +65,8 @@ Polling is paused when the window lose focus. To fix that issue we can set `refe
 
 Combine polling with callbacks. Use the `refetchInterval` option to pull the api data every 3 seconds. Behind the scenes add a fourth superhero of your choice to the superheroes array in `db.json`.
 
-    a.) Within the onSuccess callback check if the number of heroes is 4 and ifit is the case I want you to stop the polling.
-    b.) Within the onError callback I want you to stop the polling.
+    a) Within the onSuccess callback check if the number of heroes is 4 and ifit is the case I want you to stop the polling.
+    b) Within the onError callback I want you to stop the polling.
 
 Hint:
 Mantain state variable whose initial value is 3000. State variable will be assigned to `refetchInterval` configuration. In callbacks check for the response / errors and set the state variable to false.
@@ -83,9 +83,9 @@ In our example we transformed data to be an array of just heroes names instead o
 
 We can query by id in two ways (look commits under branch name: `feature/12-queryById`).
 
-    a.) Solution 1 or first commit: **QueryById with manuali passed ID**
+    	a) Solution 1 or first commit: **QueryById with manuali passed ID**
     		- We can manually pass id into fetch function: file `useSuperHeroData`
-    b.) Solution 2 or second commit: **QueryById with react-query automatic passed id**
+    	b) Solution 2 or second commit: **QueryById with react-query automatic passed id**
     		- React query automatically pass id into fetch function: file `useSuperHeroData`
 
 **9. react-query - Parallel queries**
@@ -107,6 +107,15 @@ If we add flag `keepPreviousData` into the useQuery options, when we paginate to
 **13. react-query - Handling mutation response**
 
 Handling mutation response will save you additional network request.
+
+**14. react-query - Optimistic updates**
+Updating the state before performing a mutation under the assumption that nothing can go wrong.
+
+`onMutate:` is called before the mutation function is fired and is passed the same variables that mutation function would receive.
+a) Cancel any outgoing refetches so they don't override our optimistic update.
+b) Get a hold of the current query data before we make any update. This will help us role back in case the mutation fails.
+`onError:` is called if the mutation encounters an error.
+`onSettled:` is called if the mutation is either successfull or encounters an error. `invalidateQueries` will ensure client state is in sync with server state. The user will not notice a difference.
 
 ## Available Scripts
 
