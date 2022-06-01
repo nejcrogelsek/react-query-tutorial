@@ -104,6 +104,10 @@ On react-query heroes page we have displayed different heroes. If we click on th
 
 If we add flag `keepPreviousData` into the useQuery options, when we paginate to next page, the data from the previous page is still displayed till the new data is successfully fetched.
 
+**13. react-query - Handling mutation response**
+
+Handling mutation response will save you additional network request.
+
 ## Available Scripts
 
 In the project directory, you can run:
