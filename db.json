@@ -49,6 +49,11 @@
       "name": "hello",
       "alterEgo": "world",
       "id": 10
+    },
+    {
+      "name": "Updated",
+      "alterEgo": "axios interceptors",
+      "id": 11
     }
   ],
   "friends": [
