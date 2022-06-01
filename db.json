@@ -39,6 +39,11 @@
       "name": "Add automatic",
       "alterEgo": "Okej it works",
       "id": 8
+    },
+    {
+      "name": "Test",
+      "alterEgo": "Test",
+      "id": 9
     }
   ],
   "friends": [
