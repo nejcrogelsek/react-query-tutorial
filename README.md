@@ -100,6 +100,10 @@ Dependent query - is dependent on the results of another query.
 
 On react-query heroes page we have displayed different heroes. If we click on the hero, we see `loading` text for a moment. To get rid of that initial loading statement, we can set `initialData` in useSuperHeroData.tsx file. If we refresh detail page, the loading button will show because we don't have any initial data at the start, because we skipped the fetch all super heroes query.
 
+**12. react-query keepPreviousData - Paginated queries**
+
+If we add flag `keepPreviousData` into the useQuery options, when we paginate to next page, the data from the previous page is still displayed till the new data is successfully fetched.
+
 ## Available Scripts
 
 In the project directory, you can run:
