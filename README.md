@@ -96,6 +96,10 @@ Sometimes a single component needs to call multiple APIs to fetch the necessary 
 
 Dependent query - is dependent on the results of another query.
 
+**11. react-query initialData - Initial query data**
+
+On react-query heroes page we have displayed different heroes. If we click on the hero, we see `loading` text for a moment. To get rid of that initial loading statement, we can set `initialData` in useSuperHeroData.tsx file. If we refresh detail page, the loading button will show because we don't have any initial data at the start, because we skipped the fetch all super heroes query.
+
 ## Available Scripts
 
 In the project directory, you can run:

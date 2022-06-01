@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 import axios from 'axios'
 import { SuperHero } from 'interfaces'
 
@@ -14,8 +14,20 @@ const fetchSuperHero = ({ queryKey }: { queryKey: any[] }) => {
 }
 
 export const useSuperHeroData = ({ onSuccess, onError, heroId }: Props) => {
+  const queryClient = useQueryClient()
   return useQuery(['super-hero', heroId], fetchSuperHero, {
     onError,
     onSuccess,
+    initialData: () => {
+      const hero = (queryClient.getQueryData('super-heroes') as any)?.data?.find(
+        (hero: SuperHero) => hero.id === parseInt(heroId),
+      )
+
+      if (hero) {
+        return { data: hero }
+      } else {
+        return undefined
+      }
+    },
   })
 }

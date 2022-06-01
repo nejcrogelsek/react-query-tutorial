@@ -12,7 +12,7 @@ const RQSuperHero: FC = () => {
   }
 
   const { heroId } = useParams()
-  const { data, isLoading, isError, error } = useSuperHeroData({ onSuccess, onError, heroId: heroId ?? '' })
+  const { data, isLoading, isError, error } = useSuperHeroData({ onError, onSuccess, heroId: heroId ?? '' })
 
   if (isLoading) {
     return <h2>Loading...</h2>
